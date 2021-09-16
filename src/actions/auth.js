@@ -16,8 +16,6 @@ import {
   LOGOUT,
 } from "./types";
 import axios from "axios";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 export const checkAuthenticated = () => async (dispatch) => {
   if (localStorage.getItem("access")) {
