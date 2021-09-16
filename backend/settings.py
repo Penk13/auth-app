@@ -33,7 +33,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'django-insecure-7*q7gqmmc-3t&u@x_x&u)wu)5vnky!&2h)i2nu7t@a50yu^+=o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
