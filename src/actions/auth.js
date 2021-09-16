@@ -65,10 +65,7 @@ export const load_user = () => async (dispatch) => {
       },
     };
     try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/auth/users/me/`,
-        config
-      );
+      const res = await axios.get(`/auth/users/me/`, config);
 
       dispatch({
         type: USER_LOADED_SUCCESS,
@@ -96,11 +93,7 @@ export const login = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
 
   try {
-    const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}/auth/jwt/create/`,
-      body,
-      config
-    );
+    const res = await axios.post(`/auth/jwt/create/`, body, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
