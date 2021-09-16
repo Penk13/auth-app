@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self, email, name, password=None):  # , **extra_fields
+    def create_user(self, email, name, password=None, is_active=True, is_staff=False, is_superuser=False):  # , **extra_fields
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -13,10 +13,18 @@ class UserAccountManager(BaseUserManager):
         # Normalize example: Test@gmail.com ---> test@gmail.com
         email = self.normalize_email(email)
         user = self.model(email=email, name=name)  # , **extra_fields
+        user.is_staff = is_staff
+        user.is_superuser = is_superuser
 
         user.set_password(password)
         user.save()
 
+        return user
+
+    # Called when we run python manage.py createsuperuser
+    def create_superuser(self, name, email, password=None):
+        user = self.create_user(email, name, password,
+                                is_staff=True, is_superuser=True)
         return user
 
 
