@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="container m-5">
-      <div className="bg-dark text-light p-5">
+    <div className="container">
+      <div className="bg-dark text-light p-5 m-5">
         <h1>Welcome to Auth System!</h1>
         <p>
           This is an incredible authentication system with production level
